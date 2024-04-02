@@ -1,0 +1,61 @@
+input {
+    display: none;
+  }
+  
+  #main {
+    margin-top: 4%;
+    display: flex; /* Allow tabs and content to sit side-by-side */
+    width: 100%; /* Make the main container take up full width */
+  }
+  
+  input + label { /* Labels as vertical tabs */
+    flex-direction: column;
+    border: 1px solid #999;
+    background: #EEE;
+    padding: 4px 12px;
+    border-radius: 4px 4px 0 0;
+    position: relative;
+    flex: 1;
+  }
+  
+  input:checked + label {
+    background: #FFF;
+    border-bottom: 1px solid transparent;
+    border-right: none;
+  }
+  
+  .tab { 
+    display: flex; /* Show content initially  */
+    width: 100%; /* Take full width of remaining space */
+    border-top: 1px solid #999; /* Line between 'tab' and content */
+    padding: 12px;
+  }
+  
+  /* Hide all content by default (optional) */
+  /*.tab {
+    display: none;
+  }*/
+  
+  #home-tab:checked ~ .tab,
+  #portfolio-tab:checked ~ .tab,
+  #faqs-tab:checked ~ .tab,
+  #contact-tab:checked ~ .tab {
+    display: none; /* Hide all content initially with radio check */
+  }
+  
+  #home-tab:checked ~ .home-content,
+  #portfolio-tab:checked ~ .portfolio-content,
+  #faqs-tab:checked ~ .faqs-content,
+  #contact-tab:checked ~ .contact-content {
+    display: flex; /* Show the specific content based on radio check */
+    flex: 2;
+  }
+  
+  /* Other styles */
+  #header-img {
+    width: 8%;
+  }
+  #logo-name {
+    text-decoration: none;
+  }
+  
