@@ -6,27 +6,29 @@ input {
     margin-top: 4%;
     display: flex; /* Allow tabs and content to sit side-by-side */
     width: 100%; /* Make the main container take up full width */
+    flex-direction: column;
+    flex: 3
   }
   
-  input + label { /* Labels as vertical tabs */
+  #main input + label, label { /* Labels as vertical tabs */
     flex-direction: column;
     border: 1px solid #999;
     background: #EEE;
     padding: 4px 12px;
     border-radius: 4px 4px 0 0;
     position: relative;
-    flex: 1;
+    width: 8%;
   }
   
-  input:checked + label {
+  #main input:checked + label {
     background: #FFF;
     border-bottom: 1px solid transparent;
     border-right: none;
   }
   
-  .tab { 
+  #main .tab { 
     display: flex; /* Show content initially  */
-    width: 100%; /* Take full width of remaining space */
+    width: 92%; /* Take full width of remaining space */
     border-top: 1px solid #999; /* Line between 'tab' and content */
     padding: 12px;
   }
@@ -43,7 +45,7 @@ input {
     display: none; /* Hide all content initially with radio check */
   }
   
-  #home-tab:checked ~ .home-content,
+  #main #home-tab:checked ~ .home-content,
   #portfolio-tab:checked ~ .portfolio-content,
   #faqs-tab:checked ~ .faqs-content,
   #contact-tab:checked ~ .contact-content {
