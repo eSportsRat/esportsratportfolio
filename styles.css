@@ -1,63 +1,120 @@
-input {
-    display: none;
+:root {
+  --sidebar-background: #142238;
+  --button-highlight: #ffa101;
+  --button-text: #dbd3cc;
+  --main-background: #ddd;
+  --accents: #f7e7ce;
+  --button-shading: #5b5754;
+  --button-hover: #b5afa9;
+}
+
+@media (max-width: 480px) {
+  .content {
+    position: static;
+    left: 18px;
+
   }
-  
-  #main {
-    margin-top: 4%;
-    display: flex; /* Allow tabs and content to sit side-by-side */
-    width: 100%; /* Make the main container take up full width */
-    flex-direction: column;
-    flex: 3
-  }
-  
-  #main input + label, label { /* Labels as vertical tabs */
-    flex-direction: column;
-    border: 1px solid #999;
-    background: #EEE;
-    padding: 4px 12px;
-    border-radius: 4px 4px 0 0;
-    position: relative;
-    width: 8%;
-  }
-  
-  #main input:checked + label {
-    background: #FFF;
-    border-bottom: 1px solid transparent;
-    border-right: none;
-  }
-  
-  #main .tab { 
-    display: flex; /* Show content initially  */
-    width: 92%; /* Take full width of remaining space */
-    border-top: 1px solid #999; /* Line between 'tab' and content */
-    padding: 12px;
-  }
-  
-  /* Hide all content by default (optional) */
-  /*.tab {
-    display: none;
-  }*/
-  
-  #home-tab:checked ~ .tab,
-  #portfolio-tab:checked ~ .tab,
-  #faqs-tab:checked ~ .tab,
-  #contact-tab:checked ~ .tab {
-    display: none; /* Hide all content initially with radio check */
-  }
-  
-  #main #home-tab:checked ~ .home-content,
-  #portfolio-tab:checked ~ .portfolio-content,
-  #faqs-tab:checked ~ .faqs-content,
-  #contact-tab:checked ~ .contact-content {
-    display: flex; /* Show the specific content based on radio check */
-    flex: 2;
-  }
-  
-  /* Other styles */
-  #header-img {
-    width: 8%;
-  }
-  #logo-name {
-    text-decoration: none;
-  }
-  
+}
+
+body {
+ background-color: var(--main-background);
+ margin: 0;
+ padding: 0;
+ font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#home-tab:checked ~ .home-content,
+#portfolio-tab:checked ~ .portfolio-content,
+#faqs-tab:checked ~ .faqs-content,
+#contact-tab:checked ~ .contact-content {
+  display: block;
+  position: absolute;
+  color: var(--sidebar-background);
+  margin-left: 168px;
+  max-width: calc(100% - 140px);
+}
+
+#main {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  grid-gap: 20px;
+  height: 100vh;
+}
+
+.sidebar {
+  color: var(--button-text);
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-color: var(--sidebar-background);
+}
+
+.header img {
+  width: 90px; 
+  height: 90px;
+  padding: 5px;
+  background-color: var(--accents);
+  border-radius: 50%;
+  position:absolute;
+  bottom: 15px;
+}
+
+.tabs {
+  display: grid;
+  grid-template-rows: repeat(6, 1fr);
+  background-color: var(--sidebar-background);
+  padding-left: 10px;
+  font-weight: 600;
+}
+
+input[type="radio"]:checked + label {
+  background-color: var(--main-background);
+  border-radius: 10% 0% 0% 10%;
+  color: #1c264c;
+  border: solid 8px var(--button-shading);
+  border-right: none;
+  border-bottom: none;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  padding: 10px;
+  transition: background-color 0.3s ease;
+  border-radius: 10% 0% 0% 10%;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  border-right: var(--button-highlight);
+  border-style: solid;
+  border-top: var(--accents);
+}
+
+label:hover {
+  background-color: var(--button-hover);
+  border-radius: 10% 0% 0% 10%;
+  color: var(--sidebar-background);
+}
+
+.content {
+  padding: 20px;
+  grid-column: 2 / 3;
+}
+
+.home-content,
+.portfolio-content,
+.faqs-content,
+.contact-content {
+  display: none;
+}
