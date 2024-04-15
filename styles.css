@@ -32,6 +32,61 @@ body {
   color: var(--sidebar-background);
   margin-left: 168px;
   max-width: calc(100% - 140px);
+  margin-top: 25%;
+  margin-bottom: 25%;
+}
+
+#portfolio-tab:checked ~ .portfolio-content {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+   #portolio-tab:checked ~ .portfolio-content #documents-content,
+   .portfolio-content #product-content,
+   .portfolio-content #survey-content,
+   .portfolio-content #tribute-content
+    {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.documentspreview {
+  width: 50%;
+  justify-content: center;
+}
+
+#documents-content h3, p {
+  text-align: center;
+}
+
+.tributepreview {
+  width: 50%;
+  justify-content: center;
+}
+
+#tribute-content h3, p {
+  text-align: center;
+}
+
+.productpreview {
+  width: 50%;
+  justify-content: center;
+}
+
+#product-content h3, p {
+  text-align: center;
+}
+
+.surveypreview {
+  width: 50%;
+  justify-content: center;
+}
+
+#survey-content h3, p, {
+  text-align: center;
+  justify-content: center;
 }
 
 #main {
@@ -117,4 +172,10 @@ label:hover {
 .faqs-content,
 .contact-content {
   display: none;
+}
+
+#footer {
+  position: fixed;
+  bottom: 0;
+  left: 25%;
 }
