@@ -12,19 +12,11 @@
   .content {
     position: static;
     left: 18px;
-    display: flex;
-    flex-direction: column;
-  }
-  .documentspreview,
-  .tributepreview,
-  .productpreview,
-  .surveypreview {
-    width: 100%;
+
   }
 }
 
 body {
-  width: 100%;
  background-color: var(--main-background);
  margin: 0;
  padding: 0;
@@ -32,6 +24,7 @@ body {
 }
 
 #home-tab:checked ~ .home-content,
+#portfolio-tab:checked ~ .portfolio-content,
 #faqs-tab:checked ~ .faqs-content,
 #contact-tab:checked ~ .contact-content {
   display: block;
@@ -39,28 +32,14 @@ body {
   color: var(--sidebar-background);
   margin-left: 168px;
   max-width: calc(100% - 140px);
-  text-align: center;
-}
-
-#portfolio-tab:checked ~ .portfolio-content {
-  display: block;
-  position: absolute;
-  color: var(--sidebar-background);
-  margin-left: 168px;
-  max-width: calc(100% - 140px);
-  margin-top: 5%;
+  margin-top: 25%;
   margin-bottom: 25%;
-  text-align: center;
 }
 
 #portfolio-tab:checked ~ .portfolio-content {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 10px;
-  justify-content: center;
-  text-align: center;
-  justify-items: center;
-  margin-left: 11%;
 }
 
    #portolio-tab:checked ~ .portfolio-content #documents-content,
@@ -73,55 +52,43 @@ body {
   object-fit: cover;
 }
 
-.documentspreview,
-.tributepreview,
-.productpreview,
-.surveypreview {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.documentspreview {
   width: 50%;
+  justify-content: center;
 }
 
 #documents-content h3, p {
   text-align: center;
 }
 
+.tributepreview {
+  width: 50%;
+  justify-content: center;
+}
+
 #tribute-content h3, p {
   text-align: center;
+}
+
+.productpreview {
+  width: 50%;
+  justify-content: center;
 }
 
 #product-content h3, p {
   text-align: center;
 }
 
+.surveypreview {
+  width: 50%;
+  justify-content: center;
+}
+
 #survey-content h3, p, {
   text-align: center;
+  justify-content: center;
 }
 
-#documents-content img {
-  width: 80%;
-  height: auto;
-  margin: auto;
-}
-
-#product-content img {
-  width: 80%;
-  height: auto;
-  margin: auto;
-}
-
-#survey-content img {
-  width: 80%;
-  height: auto;
-  margin: auto;
-}
-
-#tribute-content img {
-  width: 80%;
-  height: auto;
-  margin: auto;
-}
 
 #main {
   display: grid;
@@ -134,7 +101,6 @@ body {
   color: var(--button-text);
   display: grid;
   grid-template-rows: auto 1fr;
-  margin-right: 20%;
 }
 
 .header {
@@ -211,8 +177,6 @@ label:hover {
 
 #footer {
   position: fixed;
-  bottom: 0px;
-  right: auto;
-  left: auto;
-  width: 100%;
+  bottom: 0;
+  left: 25%;
 }
